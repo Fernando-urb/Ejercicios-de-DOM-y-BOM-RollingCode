@@ -1,0 +1,68 @@
+<div class=" mt-5 text-center">
+    <h2 class="mb-4">🎯 Adivina el Número Mágico</h2>
+
+    <button id="startBtn" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Comenzar el juego</button>
+
+    <div id="gameArea" class="hidden">
+      <input type="number" id="userInput" class="form-control mb-2" placeholder="Ingresa un número">
+      <button id="submitBtn" class="btn btn-success">Enviar</button>
+    </div>
+  </div>
+
+  let numeroMagico = null;
+
+const btnComenzarJuego = document.getElementById("startBtn");
+const containNumerosMagicos = document.getElementById("gameArea");
+const btnEnviarNumMagicos = document.getElementById("submitBtn");
+const inputUsuario = document.getElementById("userInput");
+
+btnComenzarJuego.addEventListener("click", () => {
+  numeroMagico = Math.floor(Math.random() * 100) + 1;
+  console.log(numeroMagico);
+  
+  containNumerosMagicos.classList.remove("hidden");
+  Swal.fire({
+    title: "¡Juego iniciado!",
+    text: "Adivina el número entre 1 y 100!",
+    icon: "Iniciar"
+  });
+  
+});
+
+btnEnviarNumMagicos.addEventListener("click", () => {
+  const valorUsuario = parseInt(inputUsuario.value);
+  
+  if (isNaN(valorUsuario) || valorUsuario < 1 || valorUsuario > 100) {
+    Swal.fire({
+        icon: "error",
+        title: "Por favor, ingresa un numero valido.",
+      
+      });
+
+    return;
+  }
+
+  if (valorUsuario === numeroMagico) {
+    Swal.fire({
+      title: "¡Felicitaciones!",
+      text: `¡Adivinaste el número mágico: ${numeroMagico}!`,
+      icon: "success"
+    });
+  } else if (valorUsuario < numeroMagico) {
+    Swal.fire({
+      icon: "info",
+      title: "¡Más alto!",
+      text: "El número es mayor. ¡Inténtalo de nuevo!"
+    });
+  } else {
+    Swal.fire({
+      icon: "info",
+      title: "¡Más bajo!",
+      text: "El número es menor. ¡Inténtalo de nuevo!"
+    });
+  }
+  
+ 
+  inputUsuario.value = '';
+  inputUsuario.focus();   
+});
