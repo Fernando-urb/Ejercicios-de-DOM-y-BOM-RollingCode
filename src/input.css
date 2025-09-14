@@ -7,13 +7,7 @@
 @import "tailwindcss";
 
 /* Importar Preline después de Tailwind */
-
-
 @custom-variant dark (&:where(.dark, .dark *));
-
-
-
-
 
 /* @import "../node_modules/preline/variants.css"; */
 @import "../node_modules/preline/variants.css";
@@ -26,3 +20,10 @@
         cursor: pointer;
     }
 }
+
+/* crear variables  */
+
+@theme {
+    --color-body:#020617;
+    --color-cards:rgba(255, 191, 0, 0.48);
+  }
