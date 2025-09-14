@@ -1,13 +1,13 @@
-//  Script para inicializar los componentes de Preline 
 
+
+
+// Script para inicializar los componentes de Preline y el resto del código
 document.addEventListener('DOMContentLoaded', function () {
     // Inicializar componentes de Preline
     if (window.HSStaticMethods) {
         window.HSStaticMethods.autoInit();
     }
-});
-
-// ejercicio 1 Numeros Magicos
+ // ejercicio 1 Numeros Magicos
 
 let numeroMagico;
 
@@ -352,6 +352,8 @@ btnDatos.addEventListener("click", () => {
 // seleciones iniciales 
 const nuevaTarea = document.getElementById("nueva-tarea");
 const lista = document.getElementById("listaTareas");
+const form = document.getElementById("form-tareas");
+
 let total = 0; //inicializamos en 0 lista
 
 // manejo formulario
@@ -376,6 +378,7 @@ form.addEventListener("submit", (e) => {
         title: '¡Tarea Agregada!',
         text: 'La tarea fue agregada correctamente a la lista.'
     });
+    return;
 
 });
 
@@ -493,7 +496,7 @@ let horas = 0;
 let intervalo = null;
 let corriendo = false;
 
-function actualizarDisplay() {
+function actualizarDisplayCronometro() {
     const formato = (num) => num.toString().padStart(2, '0');
     cronometroDisplay.textContent = `${formato(horas)}:${formato(minutos)}:${formato(segundos)}`;
 }
@@ -511,7 +514,7 @@ function iniciarCronometro() {
                 minutos = 0;
                 horas++;
             }
-            actualizarDisplay();
+        actualizarDisplayCronometro();
         }, 1000);
     }
 }
@@ -527,7 +530,7 @@ function resetearCronometro() {
     segundos = 0;
     minutos = 0;
     horas = 0;
-    actualizarDisplay();
+    actualizarDisplayCronometro();
 }
 
 
@@ -612,3 +615,7 @@ let tiempoRestante = 0;
         }   
  
     actualizarDisplay(); 
+   
+
+
+});

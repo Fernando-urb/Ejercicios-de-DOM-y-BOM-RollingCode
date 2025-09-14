@@ -1,0 +1,4 @@
+# Disable Jekyll processing
+auto: false
+include: ["*"]
+exclude: ["node_modules/", "package.json", "package-lock.json", "postcss.config.js", "tailwind.config.js"]

@@ -34,8 +34,6 @@ yarn-error.log*
 # Environment variables
 .env
 
-# Output directory
-/output.css
 
 # Prettier
 .prettierrc
