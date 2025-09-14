@@ -36,11 +36,11 @@ Cada ejercicio está diseñado para fortalecer diferentes aspectos de la program
 
 <div align="center">
 
-| Frontend | Herramientas |
-|----------|--------------|
-| ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) | ![VS Code](https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white) |
-| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white) |
-| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) | ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) |
+| Frontend | Deployment | Herramientas |
+|----------|------------|--------------|
+| ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) | ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white) | ![VS Code](https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white) |
+| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | ![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white) | ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white) |
+| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) | | ![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white) |
 
 </div>
 
@@ -50,21 +50,22 @@ Cada ejercicio está diseñado para fortalecer diferentes aspectos de la program
 
 ```
 Ejercicios-de-DOM-y-BOM-RollingCode/
-├── 📁 ejercicio-01/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── 📁 ejercicio-02/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── 📁 ejercicio-03/
-│   └── ...
-├── 📁 assets/
-│   ├── images/
-│   └── styles/
-└── README.md
-```
+├── 📁 src/
+│       ├──  📁img
+│       ├──  📁js
+│       ├──  📁sound
+│       ├──  input.css
+│       └──  ouput.css
+
+│── .gitignore
+│── README.md
+│── _config.yml
+│── index.html
+│── package-lock.json
+│── package.json
+└── tailwinds.config.js
+
+
 
 ---
 
@@ -89,6 +90,21 @@ Ejercicios-de-DOM-y-BOM-RollingCode/
 - **Ejercicio 12:** Temporizadores y intervalos
 
 ---
+
+✅ Números Mágicos - Juego de adivinanza interactivo
+✅ Generaciones - Clasificador de generaciones por año
+✅ Lista de Tareas - Gestor completo de tareas con localStorage
+✅ Reloj Digital - Reloj en tiempo real con múltiples formatos
+✅ Cronómetro - Cronómetro con precisión de milisegundos
+✅ Temporizador - Cuenta regresiva personalizable
+Cada proyecto incluye:
+
+📝 Descripción específica de la funcionalidad
+🎯 Características técnicas principales
+💡 Propósito y utilidad práctica
+🎨 Aspectos visuales destacados
+
+
 
 ## 💻 Instalación y Uso
 
@@ -128,11 +144,13 @@ Ejercicios-de-DOM-y-BOM-RollingCode/
 
 ## 📱 Características Destacadas
 
-- ⚡ **Código Limpio:** JavaScript vanilla bien estructurado
-- 📱 **Responsive Design:** Adaptable a diferentes dispositivos
-- 🎯 **Ejercicios Progresivos:** De básico a avanzado
-- 🔍 **Código Comentado:** Explicaciones detalladas en el código
-- 🎨 **Interfaz Moderna:** Diseño atractivo y funcional
+- ⚡ **6 Proyectos Únicos:** Cada uno con funcionalidad específica
+- 🎯 **JavaScript Vanilla:** Código puro sin dependencias externas
+- 📱 **Responsive Design:** Funciona perfectamente en móviles y desktop
+- 💾 **Persistencia de Datos:** Uso de localStorage para guardar información
+- ⏰ **Tiempo Real:** Actualizaciones dinámicas con setInterval
+- 🎨 **UI Moderna:** Diseñado con Tailwind CSS y Preline UI
+- 🔥 **Interactividad Avanzada:** Eventos complejos y feedback inmediato
 - ✅ **Cross-browser:** Compatible con navegadores modernos
 
 ---
