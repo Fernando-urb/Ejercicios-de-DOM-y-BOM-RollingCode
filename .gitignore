@@ -1,8 +1,6 @@
 # Node modules
 node_modules/
 
-# Salida de Tailwind CSS
-src/output.css
 
 # Archivos temporales del sistema
 .DS_Store

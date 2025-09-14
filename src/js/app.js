@@ -17,6 +17,7 @@ const btnComenzarJuego = document.getElementById("btnIniciarJuego");
 const containNumMagic = document.getElementById("contenedorNumMagic");
 const btnEnviarNumMagicos = document.getElementById("btnEnviarNumMagicos");
 const inputUsuario = document.getElementById("userInput");
+const btnCerrarNumMagicos = document.getElementById("cerrarNumMagicos");
 
 // funcion iniciar juego 
 function iniciarJuego() {
@@ -94,6 +95,23 @@ function reiniciarJuego() {
 
 }
 
+// enevento cerrar juego
+btnCerrarNumMagicos.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡si sales , el juego se reiniciara!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Cancelar',
+        cancelButtonText: 'Sí, Salir'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            reiniciarJuego();
+        }
+    });
+});
 
 // Ejercicio 2 Generaciones
 
@@ -161,14 +179,14 @@ class Persona {
        
     }
     mostrarDatos() {
-        return `La persona mostrada tiene por nombre: ${this._nombre}\n` +
-               `Edad: ${this._age}\n` +
-               `DNI: ${this._DNI}\n` +
-               `Género: ${this._genero}\n` +
-               `Peso: ${this._peso}\n` +
-               `Altura: ${this._altura}\n` +
-               `Año de nacimiento: ${this._anioDeNacimiento}\n` +
-               `Nacionalidad: ${this._nacionalidad}`;
+        return `Nombre: ${this._nombre} -\n 
+               Edad: ${this._age} años -\n 
+               DNI: ${this._DNI} -\n 
+               Género: ${this._genero} -\n 
+               Peso: ${this._peso} Kg -\n 
+               Altura: ${this._altura} cm -\n
+               Año de nacimiento: ${this._anioDeNacimiento} -\n
+               Nacionalidad: ${this._nacionalidad}`;
     }
 
 }
@@ -190,12 +208,13 @@ const contCrearPersona = document.getElementById("contCrearPersona")
 const btnGeneracion = document.getElementById("btnGeneracion");
 const btnMayorEdad = document.getElementById("btnMayorEdad");
 const btnDatos = document.getElementById("btnDatos");
+const btnCerrarPersonas = document.getElementById("btnCerrarPersona");
 
 
 
 // funcion crear pesona 
 function crearPersona() {
-    const nombrePersona = nombre.value;
+    const nombrePersona =  nombre.value;
     if (nombrePersona.trim() === "") {
         Swal.fire({
             icon: 'error',
@@ -216,7 +235,7 @@ function crearPersona() {
         return;
     }
     const dniPersona = parseInt(dni.value);
-    if (isNaN(dniPersona) || dniPersona < 1000000 || dniPersona > 50000000) {
+    if (isNaN(dniPersona) || dniPersona < 1000000 || dniPersona > 70000000) {
         Swal.fire({
             icon: "error",
             title: "Dni invalido",
@@ -289,15 +308,8 @@ function crearPersona() {
         text: "La persona se creo correctamente",
         icon: "success"
     });
-    //   limpiar los input 
-    nombre.value = "";
-    edad.value = "";
-    dni.value = "";
-    genero.value = "";
-    peso.value = "";
-    altura.value = "";
-    anio.value = "";
-    nacionalidad.value = "";
+    return;
+  
 }
 // evento crear persona 
 btnCrearPersona.addEventListener("click", () => {
@@ -346,31 +358,69 @@ btnDatos.addEventListener("click", () => {
     mostrarDatos();
 });
 
+// funcion de reiniciar juego 
+function reiniciarJuegoGeneraciones() {
+    persona ;
+    contenedorBotones.classList.add("hidden");
+    contCrearPersona.classList.remove("hidden");
+    contenedorInput.classList.remove("hidden");
+    nombre.value = "";
+    edad.value = "";
+    dni.value = "";
+    genero.value = "";
+    peso.value = "";
+    altura.value = "";
+    anio.value = "";
+    nacionalidad.value = "";
+}
+
+
+// evento cerrar y reiniciar juego
+
+btnCerrarPersonas.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Si sales, el juego se reiniciará!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si , Salir',
+        cancelButtonText: 'Cancelarr'
+    }).then((result) => {
+        if (result.isConfirmed) {
+           reiniciarJuegoGeneraciones();
+        }
+    });
+});
 
 // ejercicio 3  lista de tareas 
 
 // seleciones iniciales 
 const nuevaTarea = document.getElementById("nueva-tarea");
 const lista = document.getElementById("listaTareas");
-const form = document.getElementById("form-tareas");
+const formulario = document.getElementById("form-tareas");
+const bntCerrarTareas = document.getElementById("btnCerarTareas");
 
 let total = 0; //inicializamos en 0 lista
 
 // manejo formulario
-form.addEventListener("submit", (e) => {
+formulario.addEventListener("submit", (e) => {
     e.preventDefault();// no se envie por defecto el formulario
 
 
     if (nuevaTarea.value.trim() === "") {
-        Swal.fire({
+       
+         Swal.fire({
             icon: 'error',
             title: 'Campos Vacios',
             text: 'Por favor, completa el campo para agregar una tarea.'
         });
-        return;
-    }
-
-    agregarTarea(nuevaTarea.value);
+         return;
+        
+      
+    }else{
+           agregarTarea(nuevaTarea.value);
     nuevaTarea.value = "";
 
     Swal.fire({
@@ -378,7 +428,12 @@ form.addEventListener("submit", (e) => {
         title: '¡Tarea Agregada!',
         text: 'La tarea fue agregada correctamente a la lista.'
     });
-    return;
+    
+
+    }
+
+ 
+   
 
 });
 
@@ -448,6 +503,36 @@ function agregarTarea(tarea) {
 }
 
 
+// funcion de reiniciar juego 
+function reiniciarTareas() {
+    lista.innerHTML = "";
+    total = 0;
+    actualizarContador();
+
+    
+}
+
+
+// evento cerrar y reiniciar juego
+
+bntCerrarTareas.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Si sales, el juego se reiniciará!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si , Salir',
+        cancelButtonText: 'Cancelarr'
+    }).then((result) => {
+        if (result.isConfirmed) {
+           reiniciarTareas();
+        }
+    });
+});
+
+
 // ejercicio 4 reloj 
 
 
@@ -489,6 +574,7 @@ const cronometroIniciar = document.getElementById("cronometroStart");
 const cronometroPausar = document.getElementById("cronometroPause");
 const cronometroReiniciar = document.getElementById("cronometroReset");
 const cronometroDisplay = document.getElementById("cronometroDisplay");
+const bntCerarCronometro = document.getElementById("bntCerarCronometro");
 
 let segundos = 0;
 let minutos = 0;
@@ -544,13 +630,33 @@ if (cronometroPausar) {
 
 if (cronometroReiniciar) {
     cronometroReiniciar.addEventListener("click", resetearCronometro);
+
 }
+
+bntCerarCronometro.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Si sales, se reiniciara el Cronometro!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si , Salir',
+        cancelButtonText: 'Cancelarr'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            resetearCronometro();
+        }
+    });
+});
 
 // ejercicio 6 temporizador 
 
 const inicioTemporizador = document.getElementById("startBtn");
 const  pausaTemporizador = document.getElementById("pauseBtn");
 const resetTemp = document.getElementById("resetBtn") ;
+const cerrarTemporizador = document.getElementById("cerrarTemporizador");
+
 
 let tiempoRestante = 0;
     let intervaloTemporizador ;
@@ -618,4 +724,21 @@ let tiempoRestante = 0;
    
 
 
+});
+
+cerrarTemporizador.addEventListener("click", () => {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "¡Si sales, se reiniciara el Temporizador!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si , Salir',
+        cancelButtonText: 'Cancelarr'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            resetearTemporizador();
+        }
+    });
 });
