@@ -21,7 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Archivos de compilación
-dist/
+
 build/
 
 # Archivos de caché
